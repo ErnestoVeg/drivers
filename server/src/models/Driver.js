@@ -9,12 +9,11 @@ module.exports = (sequelize) => {
       primaryKey: true,
       defaultValue: DataTypes.UUIDV4,
     },
-    name: {
+    forename: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
     },
-    driverRef: {
+    surname: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -34,5 +33,7 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-  });
+  },
+  {timestamps: false, freezeTableName: true}
+  );
 };
