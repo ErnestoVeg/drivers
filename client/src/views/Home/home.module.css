@@ -1,0 +1,44 @@
+body {
+    background-image: url("https://i.pinimg.com/originals/28/09/22/2809229747a49c03e39830d28a177bea.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+  }
+  
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+.navBar {
+    position: fixed;
+    top: 10;
+    left: 0;
+    width: 100%;
+    z-index: 9999; /* Ajusta el valor del z-index según sea necesario */
+  }
+  
+.errorBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px; /* Ajusta la altura según tus necesidades */
+    z-index: 9999; /* Ajusta el valor del z-index según sea necesario */
+  }
+  
+.paginadoContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: -5px;
+  }
+  
+.errores{
+    position: fixed;
+    top: 100px;
+    left: 400px;
+    background-color: azure;
+    height: 200px;
+  }

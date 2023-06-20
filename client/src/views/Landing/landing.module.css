@@ -1,0 +1,26 @@
+.videoContainer {
+    position: absolute;
+    top: 5px;
+    left: -20px;
+    width: 600px;
+    height: 290px;
+    z-index: 1; /* Valor inferior para el contenedor de video */
+  }
+  
+  .linkContainer {
+    position: absolute;
+    top: 390px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    z-index: 2; /* Valor superior para el contenedor de enlace */
+  }
+  
+  .link {
+    color: white;
+  }
+  
+  .link:hover {
+    font-size: large;
+    color: red;
+  }

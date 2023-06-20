@@ -33,6 +33,10 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    createInDb: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
+    },
   },
   {timestamps: false, freezeTableName: true}
   );

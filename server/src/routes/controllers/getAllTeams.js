@@ -1,7 +1,7 @@
 const { Team } = require('../../db');
 const axios = require('axios');
 
-const getTeam = async () => {
+const getAllTeams = async () => {
   const allTeamsDb = await Team.findAll();
   
   if (!allTeamsDb.length) {
@@ -35,4 +35,4 @@ const getTeam = async () => {
   
 }
 
-module.exports = getTeam;
+module.exports = getAllTeams;
