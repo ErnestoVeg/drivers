@@ -37,8 +37,6 @@ function Create() {
     nationality: "Nationality is required",
     dob: "Dob is required",
     teams: "Teams is required",
-    message: "",
-    ok: false
   })
 
   /*****   AGREGAR UN TEAM AL TEXTAREA TEAMS   *****/
@@ -154,7 +152,7 @@ useEffect(() => {
       return; // Evitar la ejecución del resto del código
     }
    
-    if (errors.ok) {
+    if (errors.forename==""&&errors.surname==""&&errors.description==""&&errors.image==""&&errors.nationality==""&&errors.dob==""&&errors.teams=="" ) {
       //Aseguro el formato JSON para que se guarde en la BD
       const formattedDriver = {
         forename: newDriver.forename,
@@ -327,7 +325,7 @@ useEffect(() => {
                       type="submit"
                       style={{ marginTop: '10px', marginLeft: '10px' }}
                       onClick={handleSubmit}
-                      disabled={!errors.ok}
+                      disabled={errors.forename==""&&errors.surname==""&&errors.description==""&&errors.image==""&&errors.nationality==""&&errors.dob==""&&errors.teams==""}
                       className={styles.submitButton}
                   >
                       Save

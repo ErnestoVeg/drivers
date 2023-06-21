@@ -6,11 +6,11 @@ let allDrivers = []
 
 const getAllDrivers = async (name) => {
     const allDriversDb = await Driver.findAll({
-        include: {
-            model: Team,
-            attributes: ["name"],
-            through: {
-                attributes: [],
+         include: {
+             model: Team,
+             attributes: ['name'],
+             through: {
+                 attributes: [],
             },
         }
     });
@@ -65,36 +65,42 @@ const getDriverById = async (id) => {
     return driverById;
 }
 
-const postDriver = async (forename,surname,description,image,nationality,dob, arrTeams) => {
-    const existingDriver = await Driver.findOne({
-        where: {
-          forename,
-          surname,
-        },
-      });
-      if (existingDriver) {
-        const error = new Error('el piloto ya existe');
-        error.status = 409; 
-        throw error;
-      }
-    
-    const newDriver = await Driver.create({
-        forename,
-        surname,
-        description,
-        image,
-        nationality,
-        dob
-    })
+const createDriver = async (forename, surname, description, image, nationality, dob, arrTeams) => {
+  console.log(forename, surname, description, image, nationality, dob, arrTeams);
+  const existingDriver = await Driver.findOne({
+    where: {
+      forename,
+      surname,
+    },
+  });
 
-    for (const teamName of arrTeams) {
-      const [team, created] = await Team.findOrCreate({
+  if (existingDriver) {
+    const error = new Error('El piloto ya existe');
+    error.status = 409;
+    throw error;
+  }
+
+  const team = await Promise.all(
+    arrTeams.map(async (teamName) => {
+      const [result] = await Team.findOrCreate({
         where: { name: teamName },
       });
-      await newDriver.addTeam(team);
-    }
+      return result.id;
+    })
+  );
 
-      return newDriver;
+  const newDriver = await Driver.create({
+    forename,
+    surname,
+    description,
+    image,
+    nationality,
+    dob,
+  });
+
+  await newDriver.addTeams(team);
+
+    return newDriver;
 }
 
 const updateDriver = async (id, updateData) => {
@@ -137,7 +143,7 @@ const deleteDriver = async (id) => {
 };
 
 module.exports = {
-postDriver,
+createDriver,
 getAllDrivers,
 getDriverById,
 updateDriver,

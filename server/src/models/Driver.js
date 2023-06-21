@@ -30,7 +30,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     dob: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     createInDb: {

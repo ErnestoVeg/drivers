@@ -45,7 +45,7 @@ export const validate = (newDriver) => {
     if (!newDriver.dob) { 
       errors.ok = false;
       errors.dob = "The dob is required";
-    } else if (!/^(0[1-9]|1[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/([0-9]{4})$/.test(newDriver.dob)){
+    } else if (/^(0[1-9]|1[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/([0-9]{4})$/.test(newDriver.dob)){
       errors.ok = false;
       errors.dob = "The dob only accepts dd/mm/aaaa";
     }   
