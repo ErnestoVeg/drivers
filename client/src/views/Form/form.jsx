@@ -191,17 +191,14 @@ useEffect(() => {
   return (
     <div className={styles.container}>
 
-      {/***** COLUMNA IZQUIERDA *****/}
       <div className={styles.sidebar}>
         <h2 style={{ marginTop: "-5px", color: "white" }}>Create New Driver {errors.ok}</h2>
         
-        {/***** IMAGEN *****/}
         <div className={styles.campoImagen}>
           {!newDriver.image && <img src={notFoundImage} alt="No image" />}
           {newDriver.image && <img src={newDriver.image}  alt="Pic Driver" />}
         </div>
         
-        {/***** CARGA DE URL DE IMAGEN *****/}
         <div className={styles.formField}>
             <label styles={{color:"white"}}>Image URL:</label>
             <input type="text" title="URL" onChange={imageUrlChange} id="imageUrlInput"/>
@@ -215,12 +212,10 @@ useEffect(() => {
           </div>
       </div>
 
-      {/***** COLUMNA DERECHA *****/}
       <div className={styles.main}>
         <form className={styles.form}>
         <h2 style={{ marginTop: "-5px", marginBottom: "35px", color: "white" }}>{errors.ok}</h2>
           
-          {/***** CARGA DE NOMBRE; APELLIDO Y F. NAC *****/}
           <div className={styles.formField}>
             <label style={{marginLeft:"0px"}}>Forename: </label>
             <input style={{width:"150px"}} name="forename" type="text" onChange={handleChangeInput}/>
@@ -252,7 +247,6 @@ useEffect(() => {
             )}
           </div>
           
-          {/***** CARGA DE NACIONALIDAD *****/}
           <div className={styles.formField}>
             <label >Nationality: </label>
             <input style={{ width: "75px" }} name="nationality" type="text" onChange={handleChangeInput} />
@@ -265,7 +259,6 @@ useEffect(() => {
             )}
           </div>
 
-          {/***** CARGA DE DESCRIPCION *****/}
           <div className={styles.formField}>
             <label className={styles.formField}>Description: </label>
             <textarea style={{width:"75%", height:"90px"}} name="description" cols="100" onChange={handleChangeInput}/>
@@ -278,7 +271,6 @@ useEffect(() => {
             )}
           </div>
 
-          {/***** CARGA DE TEAMS *****/}
           <div className={styles.formField}>
             <label className={styles.formField} style={{marginLeft:"-46px", marginTop:"23px"}}>Teams:</label>
             <select
@@ -318,7 +310,6 @@ useEffect(() => {
               )}
           </div>
 
-          {/***** BOTON GRABAR & CANCELAR *****/}
           <div className={styles.formField}>
               <div style={{ display: 'inline-block' }}>
                   <button

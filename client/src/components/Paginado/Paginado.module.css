@@ -3,6 +3,7 @@
     list-style: none;
     justify-content: center;
     margin: 20px 0;
+    
   }
   
 .paginado li {
@@ -10,9 +11,9 @@
   }
   
 .paginado button {
-    color: rgb(206, 18, 18);
+    color:white;
     text-decoration: none;
-    background: none;
+    background: black;
     border: none;
     cursor: pointer;
   }
@@ -23,13 +24,12 @@
   
 .paginado .number.active button {
     color: #fff;
-    background-color: #a00808;
-    border-radius: 50%;
+    background-color: grey;
     padding: 5px 8px;
   }
   
 .inicioFin {
-    background: rgb(177, 9, 9); 
+    background: grey; 
     color: rgb(255, 255, 255); 
     width: 55px;
   }

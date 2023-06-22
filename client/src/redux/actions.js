@@ -8,6 +8,7 @@ export const RESET = "RESET";
 export const FILTER_ORIGIN = "FILTER_ORIGIN";
 export const SEARCH_DRIVERS = "SEARCH_DRIVERS";
 export const SET_ERROR = "SET_ERROR";
+export const GET_DRIVERS_BY_NAME = "GET_DRIVERS_BY_NAME";
 
 export function getDrivers() {
   return async function (dispatch) {
@@ -18,6 +19,22 @@ export function getDrivers() {
         payload: response.data,
       });
     } catch (error) {}
+  };
+}
+
+export function getDriversByName(name) {
+  return async function (dispatch) {
+    try {
+      const response = await axios(`http://localhost:3001/drivers/?name=${name}`);
+      return dispatch({
+        type: "GET_DRIVERS_BY_NAME",
+        payload: response.data,
+      });
+    } catch (error) {
+      return dispatch({
+        
+      });
+    }
   };
 }
 

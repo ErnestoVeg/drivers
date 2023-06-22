@@ -1,12 +1,3 @@
-.videoContainer {
-    position: absolute;
-    top: 5px;
-    left: -20px;
-    width: 600px;
-    height: 290px;
-    z-index: 1; /* Valor inferior para el contenedor de video */
-  }
-  
   .linkContainer {
     position: absolute;
     top: 390px;
@@ -22,5 +13,6 @@
   
   .link:hover {
     font-size: large;
-    color: red;
+    color: black;
+    
   }

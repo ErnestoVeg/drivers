@@ -40,25 +40,25 @@ function Home() {
     localStorage.getItem("checkedSearch") === "true"
   );
 
-  useEffect(() => {
+  useEffect(() => { //maneja la eliminacion de mensaje de error 
     setTimeout(() => {
       dispatch(setError(""));
     }, 10000);
   }, [dispatch, error])
 
-  useEffect(() => {
+  useEffect(() => { //maneja si la matriz esta vacia 
     if (!filteredDrivers.length) {
       dispatch(getDrivers());
     }
   }, [dispatch, filteredDrivers]);
 
-  useEffect(() => {
+  useEffect(() => { //maneja si teams esta vacia 
     if (!teams.length) {
       dispatch(getTeams());
     }
   }, [dispatch, teams]);
 
-  useEffect(() => {
+  useEffect(() => { //recupera el currentpage valor alamcenado del almacenamiento local y actualiza el estado 
     const storedCurrentPage = localStorage.getItem("currentPage");
     if (storedCurrentPage) {
       setCurrentPage(parseInt(storedCurrentPage));
@@ -66,7 +66,7 @@ function Home() {
     }
   }, []);
 
-  useEffect(() => {
+  useEffect(() => {//almacena el current estado en el almacenamiento local cada vez que cambia 
     localStorage.setItem("currentPage", currentPage.toString());
   }, [currentPage]);
 
@@ -92,6 +92,7 @@ function Home() {
     setCheckedSearch(isChecked);
     localStorage.setItem("checkedSearch", isChecked.toString());
     dispatch(searchDrivers(name, isChecked));
+    setCurrentPage(1);
   };
 
   const resetHandler = () => {

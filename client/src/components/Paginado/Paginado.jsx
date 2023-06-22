@@ -6,7 +6,7 @@ export default function Paginado({ driversPerPage, allDrivers, paginado, current
 
   useEffect(() => {
     const totalPages = Math.ceil(allDrivers / driversPerPage);
-    const maxDisplayPages = 5;
+    const maxDisplayPages = 12; //numero de paginas visibles
     let startPage = Math.max(currentPage - Math.floor(maxDisplayPages / 2), 1);
     let endPage = Math.min(startPage + maxDisplayPages - 1, totalPages);
 
@@ -22,15 +22,15 @@ export default function Paginado({ driversPerPage, allDrivers, paginado, current
     setDisplayPages(pages);
   }, [currentPage, allDrivers, driversPerPage]);
 
-  const [inputPage, setInputPage] = useState("");
+  const [inputPage, setInputPage] = useState(""); //igresa el numero de pagina
   const [errorInput, setErrorInput] = useState("");
 
-  const handleInputChange = (event) => {
-    setInputPage(event.target.value);
-    setErrorInput("");
+  const handleInputChange = (event) => { 
+    setInputPage(event.target.value); //ingresa
+    setErrorInput(""); //borra
   };
 
-  const handleGoToPage = () => {
+  const handleGoToPage = () => { //rango 
     const pageNumber = parseInt(inputPage, 10);
     if (pageNumber >= 1 && pageNumber <= Math.ceil(allDrivers / driversPerPage)) {
       paginado(pageNumber);
